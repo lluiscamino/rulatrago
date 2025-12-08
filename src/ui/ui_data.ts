@@ -36,7 +36,6 @@ const GREEN_BACKGROUND_CLASSNAME = 'green-bg';
 
 export interface BetButtonDataGroup {
     title: string,
-    multiplier: number,
     numColumns: number,
     buttons: BetButtonData[]
 }
@@ -51,7 +50,6 @@ export interface BetButtonData {
 export const betButtonDataGroups: BetButtonDataGroup[] = [
     {
         title: 'x1',
-        multiplier: 1,
         numColumns: 4,
         buttons: [
             {
@@ -82,7 +80,6 @@ export const betButtonDataGroups: BetButtonDataGroup[] = [
     },
     {
         title: 'x3',
-        multiplier: 3,
         numColumns: 4,
         buttons: [
             {
@@ -129,7 +126,6 @@ export const betButtonDataGroups: BetButtonDataGroup[] = [
     },
     {
         title: 'x12',
-        multiplier: 12,
         numColumns: 3,
         buttons: [ // TODO: Dynamically generate?
             {

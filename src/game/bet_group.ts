@@ -13,7 +13,7 @@ export class BetGroup {
     }
 
     public getTotalAmount(): number {
-        return sumAmounts(this.bets);
+        return sumWinMultipliedAmounts(this.bets);
     }
 
     public getAllBets(): Bet[] {
@@ -24,7 +24,7 @@ export class BetGroup {
         const winningBets = this.bets.filter(({rule}) => rule.won(drawnCard));
         const losingBets = this.bets.filter(({rule}) => !rule.won(drawnCard));
         return {
-            tokensWon: sumAmounts(winningBets),
+            tokensWon: sumWinMultipliedAmounts(winningBets),
             tokensLost: sumAmounts(losingBets)
         }
     }
@@ -42,6 +42,10 @@ export type Bet = {
 export type BetGroupResult = {
     tokensWon: number,
     tokensLost: number
+}
+
+function sumWinMultipliedAmounts(bets: Bet[]): number {
+    return bets.reduce((acc, {amount, rule}) => acc + amount * rule.winMultiplier, 0);
 }
 
 function sumAmounts(bets: Bet[]): number {

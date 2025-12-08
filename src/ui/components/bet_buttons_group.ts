@@ -9,7 +9,6 @@ export class BetButtonsGroup {
         title,
         numColumns,
         buttons,
-        multiplier
     }: BetButtonDataGroup, onBetAdded: (bet: Bet) => void) {
         this.container = doc.createElement('section');
         const label = this.createLabel(doc, title);
@@ -20,7 +19,7 @@ export class BetButtonsGroup {
         this.container.appendChild(grid);
         for (const buttonData of buttons) {
             grid.appendChild(new BetButton(doc, buttonData, () => onBetAdded({
-                amount: multiplier,
+                amount: 1,
                 rule: buttonData.betRule
             })).render());
         }
