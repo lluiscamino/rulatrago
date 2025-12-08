@@ -19,10 +19,13 @@ export class GameUI {
 
     init() {
         this.doc.body.appendChild(this.header.render());
+        const mainContainer = this.doc.createElement('main');
+        mainContainer.role = 'main';
         for (const betButtonsGroup of betButtonDataGroups) {
             const group = new BetButtonsGroup(this.doc, betButtonsGroup, (bet) => this.onBetAdded(bet));
-            this.doc.body.appendChild(group.render());
+            mainContainer.appendChild(group.render());
         }
+        this.doc.body.appendChild(mainContainer);
     }
 
     private onBetAdded(bet: Bet): void {

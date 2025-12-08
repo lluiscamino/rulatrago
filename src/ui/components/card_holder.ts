@@ -3,11 +3,13 @@ import type {Card} from "../../cards/card.ts";
 export class CardHolder {
     private readonly container: HTMLElement;
 
-    constructor(doc: Document, onClick: (() => void) | undefined = undefined) {
-        this.container = doc.createElement(onClick ? 'button' : 'div');
+    constructor(doc: Document, onClickConfig: OnClickConfig | undefined = undefined) {
+        this.container = doc.createElement(onClickConfig ? 'button' : 'div');
         this.setClasses(['card-holder', 'back-card']);
-        if (onClick) {
-            this.container.onclick = onClick;
+        if (onClickConfig) {
+            this.container.onclick = onClickConfig.onClick;
+            this.container.title = onClickConfig.label;
+            this.container.ariaLabel = onClickConfig.label;
         }
     }
 
@@ -24,4 +26,9 @@ export class CardHolder {
         this.container.className = '';
         classNames.forEach(className => this.container.classList.add(className));
     }
+}
+
+interface OnClickConfig {
+    label: string
+    onClick: (() => void)
 }

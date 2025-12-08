@@ -4,6 +4,7 @@ export type Translations = {
 
 export type TranslationKey =
     'game_name'
+    | 'draw_card'
     | 'red'
     | 'black'
     | 'even'

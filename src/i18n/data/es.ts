@@ -2,6 +2,7 @@ import type {Translations} from "../translations.ts";
 
 export const esTranslations: Translations = {
     game_name: 'RulaTrago',
+    draw_card: 'Destapar carta',
     red: 'Rojo',
     black: 'Negro',
     even: 'Par',

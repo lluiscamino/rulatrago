@@ -27,7 +27,10 @@ export class Header {
         this.container.appendChild(this.betsAmountDisplay.render());
         const cardHolderContainer = doc.createElement('div');
         cardHolderContainer.className = 'scale-66';
-        this.cardHolder = new CardHolder(doc, () => this.onDrawCard());
+        this.cardHolder = new CardHolder(doc, {
+            label: translate('draw_card'),
+            onClick: () => this.onDrawCard()
+        });
         cardHolderContainer.appendChild(this.cardHolder.render());
         this.container.appendChild(cardHolderContainer);
         this.container.appendChild(this.roundResultDialog.render());
