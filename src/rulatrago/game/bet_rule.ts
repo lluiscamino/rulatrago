@@ -1,6 +1,6 @@
-import type {Card} from "../cards/card.ts";
-import {CardRank} from "../cards/rank.ts";
-import {CardSuit} from "../cards/suit.ts";
+import type {Card} from "../../cards/card.ts";
+import {CardRank} from "../../cards/rank.ts";
+import {CardSuit} from "../../cards/suit.ts";
 
 export type BetRule = {
     won: (card: Card) => boolean;

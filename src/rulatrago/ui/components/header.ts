@@ -1,10 +1,10 @@
-import {CardHolder} from "./card_holder.ts";
+import {CardHolder} from "../../../ui/components/card_holder.ts";
 import type {GameController} from "../../game/controller.ts";
 import {RoundResultDialog} from "./round_result_dialog.ts";
 import {Logo} from "./logo.ts";
 import {BetsAmountDisplay} from "./bets_amount_display.ts";
-import {WarningDialog} from "./warning_dialog.ts";
-import {translate} from "../../i18n/translate.ts";
+import {WarningDialog} from "../../../ui/components/warning_dialog.ts";
+import {translate} from "../../../i18n/translate.ts";
 
 export class Header {
 

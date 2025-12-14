@@ -1,4 +1,4 @@
-import {translate} from "../../i18n/translate.ts";
+import {translate} from "../../../i18n/translate.ts";
 
 export class Logo {
     private readonly logo: HTMLImageElement;

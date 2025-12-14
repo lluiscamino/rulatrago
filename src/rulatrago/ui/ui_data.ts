@@ -1,4 +1,4 @@
-import {translate} from "../i18n/translate.ts";
+import {translate} from "../../i18n/translate.ts";
 import {
     aceCardRule,
     type BetRule,
@@ -27,7 +27,7 @@ import {
     twoCardRule,
     twoToFourCardRule
 } from "../game/bet_rule.ts";
-import {assertDefined} from "../utils/assert.ts";
+import {assertDefined} from "../../utils/assert.ts";
 
 const RED_BACKGROUND_CLASSNAME = 'red-bg';
 const BLACK_BACKGROUND_CLASSNAME = 'black-bg';

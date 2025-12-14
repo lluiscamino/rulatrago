@@ -1,6 +1,6 @@
 import {type Bet, BetGroup} from "./bet_group.ts";
-import {type CardDeck, createInfiniteDeck} from "../cards/deck.ts";
-import type {Card} from "../cards/card.ts";
+import {type CardDeck, createInfiniteDeck} from "../../cards/deck.ts";
+import type {Card} from "../../cards/card.ts";
 
 const MAX_BETS = 6;
 

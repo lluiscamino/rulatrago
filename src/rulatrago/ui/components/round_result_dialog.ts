@@ -1,6 +1,6 @@
 import type {RoundResult} from "../../game/controller.ts";
-import {CardHolder} from "./card_holder.ts";
-import {translate} from "../../i18n/translate.ts";
+import {CardHolder} from "../../../ui/components/card_holder.ts";
+import {translate} from "../../../i18n/translate.ts";
 import {BetChipsGroup} from "./bet_chips_group.ts";
 
 export class RoundResultDialog {

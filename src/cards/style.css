@@ -1,0 +1,93 @@
+/* Cards */
+.card-holder {
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    height: var(--card-height);
+    width: var(--card-width);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s;
+}
+
+.game-dialog .card-holder {
+    margin: 0 auto 20px auto;
+}
+
+.scale-66 {
+    transform: scale(0.66);
+    transform-origin: top right; /* Align properly in header */
+    display: inline-block;
+}
+
+.back-card {
+    background-image: url('/cards/back.png');
+    background-position: calc(-1 * var(--card-width));
+}
+
+.card-suit-hearts {
+    background-image: url('/cards/hearts.png');
+}
+
+.card-suit-diamonds {
+    background-image: url('/cards/diamonds.png');
+}
+
+.card-suit-clubs {
+    background-image: url('/cards/clubs.png');
+}
+
+.card-suit-spades {
+    background-image: url('/cards/spades.png');
+}
+
+.card-rank-1 {
+    background-position: 0 0;
+}
+
+.card-rank-2 {
+    background-position: calc(-1 * var(--card-width)) 0;
+}
+
+.card-rank-3 {
+    background-position: calc(-2 * var(--card-width)) 0;
+}
+
+.card-rank-4 {
+    background-position: calc(-3 * var(--card-width)) 0;
+}
+
+.card-rank-5 {
+    background-position: calc(-4 * var(--card-width)) 0;
+}
+
+.card-rank-6 {
+    background-position: 0 calc(-1 * var(--card-height));
+}
+
+.card-rank-7 {
+    background-position: calc(-1 * var(--card-width)) calc(-1 * var(--card-height));
+}
+
+.card-rank-8 {
+    background-position: calc(-2 * var(--card-width)) calc(-1 * var(--card-height));
+}
+
+.card-rank-9 {
+    background-position: calc(-3 * var(--card-width)) calc(-1 * var(--card-height));
+}
+
+.card-rank-10 {
+    background-position: calc(-4 * var(--card-width)) calc(-1 * var(--card-height));
+}
+
+.card-rank-11 {
+    background-position: 0 calc(-2 * var(--card-height));
+}
+
+.card-rank-12 {
+    background-position: calc(-1 * var(--card-width)) calc(-2 * var(--card-height));
+}
+
+.card-rank-13 {
+    background-position: calc(-2 * var(--card-width)) calc(-2 * var(--card-height));
+}

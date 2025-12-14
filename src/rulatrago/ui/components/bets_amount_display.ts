@@ -1,4 +1,4 @@
-import {translate} from "../../i18n/translate.ts";
+import {translate} from "../../../i18n/translate.ts";
 import type {GameController} from "../../game/controller.ts";
 import {BetChipsGroup} from "./bet_chips_group.ts";
 

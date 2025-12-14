@@ -1,5 +1,5 @@
 import type {BetRule} from "./bet_rule.ts";
-import type {Card} from "../cards/card.ts";
+import type {Card} from "../../cards/card.ts";
 
 export class BetGroup {
     private readonly bets: Bet[] = [];
