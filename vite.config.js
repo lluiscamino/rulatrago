@@ -6,7 +6,8 @@ export default {
     build: {
         rollupOptions: {
             input: {
-                rulatrago: resolve(__dirname, 'rulatrago.html')
+                rulatrago: resolve(__dirname, 'rulatrago.html'),
+                piramide: resolve(__dirname, 'piramide.html')
             }
         }
     }

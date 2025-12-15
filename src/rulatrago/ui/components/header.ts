@@ -20,7 +20,7 @@ export class Header {
         this.gameController = gameController;
         this.roundResultDialog = new RoundResultDialog(doc);
         this.container = doc.createElement('header');
-        this.container.className = 'game-header';
+        this.container.className = 'game-header opaque-container';
         this.container.appendChild(new Logo(doc).render());
         this.betsAmountDisplay = new BetsAmountDisplay(doc, gameController);
         this.updateBetsAmount();

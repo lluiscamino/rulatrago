@@ -1,0 +1,14 @@
+body {
+    padding-bottom: 0;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 20px);
+    justify-content: space-evenly;
+}
+
+.game-footer {
+    text-align: center;
+}

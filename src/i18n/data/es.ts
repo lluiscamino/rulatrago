@@ -18,5 +18,10 @@ export const esTranslations: Translations = {
     clear_bets: 'Retirar apuesta',
     hey: 'Eh eh eh',
     bet_required: '¡Tienes que apostar algo para poder destapar la carta!',
-    too_many_bets: 'Ya no puedes hacer más apuestas'
+    too_many_bets: 'Ya no puedes hacer más apuestas',
+    activate_card: 'Activar carta',
+    hand_out_drinks: (({tokensWon}) => `Reparte ${tokensWon} tragos`),
+    reveal_row: 'Destapar fila',
+    cannot_activate_card: 'Solo puedes activar cartas en tu mano',
+    new_pyramid: 'Nueva pirámide'
 }

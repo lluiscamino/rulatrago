@@ -2,6 +2,7 @@ import type {RoundResult} from "../../game/controller.ts";
 import {CardHolder} from "../../../ui/components/card_holder.ts";
 import {translate} from "../../../i18n/translate.ts";
 import {BetChipsGroup} from "./bet_chips_group.ts";
+import {Button} from "../../../ui/components/button.ts";
 
 export class RoundResultDialog {
     private readonly dialog: HTMLDialogElement;
@@ -18,15 +19,12 @@ export class RoundResultDialog {
         this.dialogText = doc.createElement('p');
         this.cardHolder = new CardHolder(doc);
         this.betChipsGroup = new BetChipsGroup(doc, []);
-        const button = doc.createElement('button');
-        button.className = 'dialog-btn';
-        button.innerText = translate('ok');
-        button.onclick = () => this.dialog.close();
+        const button = Button.createPrimaryButton(doc, translate('ok'), () => this.dialog.close());
         this.dialog.appendChild(this.cardHolder.render());
         this.dialog.appendChild(this.dialogTitle);
         this.dialog.appendChild(this.dialogText);
         this.dialog.appendChild(this.betChipsGroup.render());
-        this.dialog.appendChild(button);
+        this.dialog.appendChild(button.render());
     }
 
     render(): HTMLElement {

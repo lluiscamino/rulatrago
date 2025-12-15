@@ -13,6 +13,14 @@
     margin: 0 auto 20px auto;
 }
 
+.cards-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
 .scale-66 {
     transform: scale(0.66);
     transform-origin: top right; /* Align properly in header */

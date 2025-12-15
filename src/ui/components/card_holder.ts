@@ -7,9 +7,7 @@ export class CardHolder {
         this.container = doc.createElement(onClickConfig ? 'button' : 'div');
         this.setClasses(['card-holder', 'back-card']);
         if (onClickConfig) {
-            this.container.onclick = onClickConfig.onClick;
-            this.container.title = onClickConfig.label;
-            this.container.ariaLabel = onClickConfig.label;
+            this.setOnClickConfig(onClickConfig);
         }
     }
 
@@ -20,6 +18,18 @@ export class CardHolder {
     displayCard({suit, rank}: Card): void {
         this.container.title = `${rank} ${suit}`;
         this.setClasses(['card-holder', `card-suit-${suit}`, `card-rank-${rank}`]);
+    }
+
+    setOnClickConfig(onClickConfig: OnClickConfig): void {
+        this.container.onclick = onClickConfig.onClick;
+        this.container.title = onClickConfig.label;
+        this.container.ariaLabel = onClickConfig.label;
+    }
+
+    clearOnClickConfig(): void {
+        this.container.onclick = null;
+        this.container.title = '';
+        this.container.ariaLabel = null;
     }
 
     private setClasses(classNames: string[]): void {

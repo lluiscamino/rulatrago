@@ -20,4 +20,9 @@ export type TranslationKey =
     | 'clear_bets'
     | 'hey'
     | 'bet_required'
-    | 'too_many_bets';
+    | 'too_many_bets'
+    | 'activate_card'
+    | 'hand_out_drinks'
+    | 'reveal_row'
+    | 'cannot_activate_card'
+    | 'new_pyramid';

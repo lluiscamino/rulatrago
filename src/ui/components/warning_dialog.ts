@@ -1,4 +1,5 @@
 import {translate} from "../../i18n/translate.ts";
+import {Button} from "./button.ts";
 
 export class WarningDialog {
     private readonly dialog: HTMLDialogElement;
@@ -11,13 +12,10 @@ export class WarningDialog {
         dialogTitle.innerText = translate('hey');
         const dialogText = doc.createElement('p');
         dialogText.innerText = text;
-        const button = doc.createElement('button');
-        button.className = 'dialog-btn';
-        button.innerText = translate('ok');
-        button.onclick = () => this.dialog.close();
+        const button = Button.createPrimaryButton(doc, translate('ok'), () => this.dialog.close());
         this.dialog.appendChild(dialogTitle);
         this.dialog.appendChild(dialogText);
-        this.dialog.appendChild(button);
+        this.dialog.appendChild(button.render());
     }
 
     public render(): HTMLElement {

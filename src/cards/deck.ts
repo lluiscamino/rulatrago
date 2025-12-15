@@ -56,3 +56,11 @@ class InfiniteCardDeck implements CardDeck {
 export function createInfiniteDeck(): CardDeck {
     return InfiniteCardDeck.create();
 }
+
+export function nextNCardsOrThrow(deck: CardDeck, numCards: number) {
+    const cards: Card[] = [];
+    for (let i = 0; i < numCards; i++) {
+        cards.push(deck.nextCard());
+    }
+    return cards;
+}
