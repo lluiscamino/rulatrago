@@ -1,0 +1,229 @@
+@import "../cards/style.css";
+
+:root {
+    --card-height: 124px;
+    --card-width: 88px;
+    --bet-chip-size: 40px;
+    --bet-button-size: 64px;
+
+    /* GOLDEN HOUR DESERT PALETTE */
+    --bg-color: #654321; /* Dark Sand/Earth tone, though mostly covered by image */
+
+    /* Using the background image's warm tones for accents */
+    --color-sandstone: #d4a572;
+    --color-dark-earth: #4e342e;
+    --color-parchment: #fffbf0;
+
+    /* Rich Metallic Gold */
+    --accent-gold: #ffc72c;
+    --gold-border: #9a6800;
+
+    /* Text color for contrast over light elements */
+    --text-color: var(--color-dark-earth);
+
+    /* Button Colors - Earthy Tones */
+    --btn-primary-bg: linear-gradient(180deg, var(--accent-gold), var(--gold-border));
+    --btn-secondary-bg: #805c3b; /* Darker Sandstone */
+
+    /* Shadows */
+    --shadow-deep: 0 8px 15px rgba(0, 0, 0, 0.6);
+    --shadow-sand: 0 2px 4px rgba(139, 69, 19, 0.4);
+}
+
+* {
+    /* Font that looks strong and historical */
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    box-sizing: border-box;
+    /* We assume the body or container will hold the background image now */
+    background-color: var(--bg-color);
+    background-image: none; /* The image is usually set on a parent element, but removing gradient */
+    min-height: 100vh;
+    color: var(--text-color);
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 10px;
+    /* Resetting previous border/shadow */
+    box-shadow: none;
+}
+
+/* Typography & Headers - Less prominent as the focus is on the cards/board */
+h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-sandstone);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 2px solid var(--gold-border);
+    border-top: none;
+    padding: 5px 0;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    text-align: center;
+    background-color: transparent;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* --- DIALOGS (Parchment Scroll) --- */
+.game-dialog {
+    background: var(--color-parchment);
+    border: 4px solid var(--gold-border);
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 90%;
+    width: 320px;
+    color: var(--text-color);
+    box-shadow: var(--shadow-deep);
+    text-align: center;
+    margin: auto;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    /* Subtle parchment texture look */
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.05);
+}
+
+.game-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(2px);
+}
+
+.dialog-title {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: var(--gold-border);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+    font-weight: 800;
+}
+
+.game-dialog p {
+    font-family: 'Georgia', serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin-bottom: 25px;
+}
+
+/* --- BUTTONS (Earthy Gold Plaques) --- */
+
+/* Primary Button: GOLD */
+.primary-btn {
+    background: var(--btn-primary-bg);
+    color: var(--color-dark-earth);
+    border: 1px solid #fff;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 0 var(--gold-border), 0 4px 8px rgba(0, 0, 0, 0.4); /* 3D effect */
+    transition: all 0.1s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.primary-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 0 var(--gold-border), 0 6px 10px rgba(0, 0, 0, 0.4);
+    filter: brightness(1.1);
+}
+
+.primary-btn:active {
+    transform: translateY(3px); /* Pushes down into the shadow */
+    box-shadow: 0 1px 0 var(--gold-border), 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Secondary Button: Dark Sandstone */
+.secondary-btn {
+    background: var(--btn-secondary-bg);
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 0 #423028; /* Deep shadow for 3D effect */
+}
+
+.secondary-btn:hover {
+    background: #a67c52;
+    color: white;
+    box-shadow: 0 5px 0 #423028, 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.secondary-btn:active {
+    transform: translateY(3px); /* Pushes down into the shadow */
+    box-shadow: 0 1px 0 #423028, 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* --- UTILITIES & GAMEPLAY CONTAINER --- */
+
+/* This container mimics the stone slab the revealed cards are resting on */
+.opaque-container {
+    background: var(--color-sandstone);
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    /* Carved stone look */
+    border: 4px solid var(--gold-border);
+    box-shadow: var(--shadow-deep),
+    inset 0 0 10px rgba(0, 0, 0, 0.3);
+
+    /* Setting a fixed width to match the visual in the image */
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: -10px; /* Slight lift up toward the pyramid */
+}
+
+.alert {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    /* Notification Style: Gold Scroll */
+    color: var(--color-dark-earth);
+    background: #fffbf0;
+    border: 2px solid var(--accent-gold);
+
+    box-shadow: var(--shadow-sand);
+    animation: slide-down 300ms ease-out;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes slide-down {
+    from {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}

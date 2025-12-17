@@ -1,4 +1,4 @@
-import '../styles/common.css'
+import '../styles/luxury.css'
 import './style.css';
 import {GameUI} from "./ui/game_ui.ts";
 import {WonTokensCalculationStrategy} from "./game/won_tokens_calculator.ts";

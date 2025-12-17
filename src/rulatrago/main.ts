@@ -1,5 +1,5 @@
 import './style.css'
-import '../styles/common.css'
+import '../styles/casino.css'
 import {GameUI} from "./ui/game_ui.ts";
 import {GameController} from "./game/controller.ts";
 
