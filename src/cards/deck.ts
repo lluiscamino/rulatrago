@@ -1,6 +1,6 @@
 import {Card} from "./card.ts";
-import {secureShuffle} from "../utils/random.ts";
 import {assert} from "../utils/assert.ts";
+import {RandomShuffler, type Shuffler} from "./shuffler.ts";
 
 export interface CardDeck {
     hasNextCard(): boolean;
@@ -25,15 +25,17 @@ class FiniteCardDeck implements CardDeck {
         return this.cards[this.cardPointer++];
     }
 
-    public static createRandomlyShuffled(): FiniteCardDeck {
-        return new FiniteCardDeck(secureShuffle(Card.getAllCards()));
+    public static create(shuffler: Shuffler): FiniteCardDeck {
+        return new FiniteCardDeck(shuffler.shuffle(Card.getAllCards()));
     }
 }
 
 class InfiniteCardDeck implements CardDeck {
+    private shuffler: Shuffler;
     private deck: FiniteCardDeck;
 
-    private constructor(deck: FiniteCardDeck) {
+    private constructor(shuffler: Shuffler, deck: FiniteCardDeck) {
+        this.shuffler = shuffler;
         this.deck = deck;
     }
 
@@ -43,18 +45,19 @@ class InfiniteCardDeck implements CardDeck {
 
     nextCard(): Card {
         if (!this.deck.hasNextCard()) {
-            this.deck = FiniteCardDeck.createRandomlyShuffled();
+            this.shuffler = this.shuffler.newShuffler();
+            this.deck = FiniteCardDeck.create(this.shuffler);
         }
         return this.deck.nextCard();
     }
 
-    public static create() {
-        return new InfiniteCardDeck(FiniteCardDeck.createRandomlyShuffled());
+    public static create(shuffler: Shuffler) {
+        return new InfiniteCardDeck(shuffler, FiniteCardDeck.create(shuffler));
     }
 }
 
-export function createInfiniteDeck(): CardDeck {
-    return InfiniteCardDeck.create();
+export function createInfiniteDeck(shuffler: Shuffler = new RandomShuffler()): CardDeck {
+    return InfiniteCardDeck.create(shuffler);
 }
 
 export function nextNCardsOrThrow(deck: CardDeck, numCards: number) {

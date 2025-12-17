@@ -4,6 +4,7 @@ import {type CardDeck, createInfiniteDeck} from "../../cards/deck.ts";
 import {type Card} from "../../cards/card.ts";
 import type {CardRank} from "../../cards/rank.ts";
 import {WonTokensCalculationStrategy, WonTokensCalculator} from "./won_tokens_calculator.ts";
+import {DeterministicShuffler} from "../../cards/shuffler.ts";
 
 const PYRAMID_SIZE = 5;
 const CARDS_PER_PLAYER = 5;
@@ -37,8 +38,8 @@ export class GameController {
         this.singleGameController = this.singleGameControllerFactory();
     }
 
-    public static create(wonTokensCalculatorStrategy: WonTokensCalculationStrategy): GameController {
-        const deck = createInfiniteDeck();
+    public static create({wonTokensCalculatorStrategy, randomSeed}: GameConfig): GameController {
+        const deck = createInfiniteDeck(new DeterministicShuffler(randomSeed));
         return new GameController(() => SingleGameController.create(wonTokensCalculatorStrategy, deck));
     }
 }
@@ -80,6 +81,11 @@ class SingleGameController {
     public static create(wonTokensCalculatorStrategy: WonTokensCalculationStrategy, deck: CardDeck): SingleGameController {
         return new SingleGameController(wonTokensCalculatorStrategy, createPyramidRowsIterator(deck), createCardHand(deck));
     }
+}
+
+export interface GameConfig {
+    wonTokensCalculatorStrategy: WonTokensCalculationStrategy
+    randomSeed: number
 }
 
 function createPyramidRowsIterator(deck: CardDeck): PyramidRowsIterator {
