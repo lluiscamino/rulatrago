@@ -1,0 +1,1 @@
+export const BASE_URL: URL = new URL(import.meta.env.BASE_URL, window.location.origin);

@@ -39,5 +39,12 @@ export const esTranslations: Translations = {
     share_game_links_description: "Haz que cada jugador escanee su código QR, o comparte los enlaces directamente (pulsando cada QR, o usando el botón de 'Compartir todos')",
     share_game_links_warning: '<b>Importante</b>: Cada jugador debe utilizar un código QR/enlace distinto para acceder al juego. De lo contrario, varios jugadores tendrán las mismas cartas',
     join_pyramid_game: 'Únete a mi juego de Pirámide',
-    share_all_links: 'Compartir todos los enlaces'
+    share_all_links: 'Compartir todos los enlaces',
+    browser_games: 'Juegos de Navegador',
+    rulatrago: 'RulaTrago',
+    pyramid: 'Pirámide',
+    add_game: 'Añadir juego...',
+    games_count: ({num}) => `${num} juegos`,
+    see_source_code: 'Ver código fuente',
+    more_games: 'Más juegos'
 }

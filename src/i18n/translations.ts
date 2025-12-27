@@ -42,3 +42,10 @@ export type TranslationKey =
     | 'share_game_links_warning'
     | 'join_pyramid_game'
     | 'share_all_links'
+    | 'browser_games'
+    | 'rulatrago'
+    | 'pyramid'
+    | 'add_game'
+    | 'games_count'
+    | 'see_source_code'
+    | 'more_games';
