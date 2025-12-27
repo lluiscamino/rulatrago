@@ -5,6 +5,7 @@ import {Dialog} from "../../ui/components/dialog.ts";
 import {translate} from "../../i18n/translate.ts";
 import type {Bet} from "../game/bet_group.ts";
 import {BetButtonsGroup} from "./components/bet_buttons_group.ts";
+import {CommonFooter} from "../../ui/components/common_footer.ts";
 
 export class GameUI {
     private readonly gameController: GameController;
@@ -26,6 +27,7 @@ export class GameUI {
             mainContainer.appendChild(group.render());
         }
         this.doc.body.appendChild(mainContainer);
+        this.doc.body.appendChild(new CommonFooter(this.doc).render());
     }
 
     private onBetAdded(bet: Bet): void {

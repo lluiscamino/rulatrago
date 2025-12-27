@@ -5,6 +5,7 @@ import type {Card} from "../../cards/card.ts";
 import {Alert} from "../../ui/components/alert.ts";
 import {translate} from "../../i18n/translate.ts";
 import {Dialog} from "../../ui/components/dialog.ts";
+import {CommonFooter} from "../../ui/components/common_footer.ts";
 
 export class GameUI {
     private readonly gameController: GameController;
@@ -29,6 +30,7 @@ export class GameUI {
         this.mainContainer.appendChild(this.pyramidHolder.render());
         this.mainContainer.appendChild(this.footer.render());
         this.doc.body.appendChild(this.mainContainer);
+        this.doc.body.appendChild(new CommonFooter(this.doc).render());
     }
 
     private onPyramidCardClick(card: Card): void {

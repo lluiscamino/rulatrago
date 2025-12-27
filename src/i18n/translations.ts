@@ -48,4 +48,5 @@ export type TranslationKey =
     | 'add_game'
     | 'games_count'
     | 'see_source_code'
-    | 'more_games';
+    | 'more_games'
+    | 'last_built_at';

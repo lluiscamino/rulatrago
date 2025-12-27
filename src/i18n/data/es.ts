@@ -46,5 +46,6 @@ export const esTranslations: Translations = {
     add_game: 'Añadir juego...',
     games_count: ({num}) => `${num} juegos`,
     see_source_code: 'Ver código fuente',
-    more_games: 'Más juegos'
+    more_games: 'Más juegos',
+    last_built_at: 'Última compilación: '
 }

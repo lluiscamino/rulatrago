@@ -8,6 +8,7 @@ import {getUserInputAsEnumValue, getUserInputAsNumber} from "../../utils/user_in
 import {Dialog} from "../../ui/components/dialog.ts";
 import {secureUint32} from "../../utils/random.ts";
 import {PlayersGameLinksSlider} from "./components/players_game_links_slider.ts";
+import {CommonFooter} from "../../ui/components/common_footer.ts";
 
 const NUM_PLAYERS_ID = 'num-players';
 const PYRAMID_TYPE_ID = 'pyramid-type';
@@ -31,6 +32,7 @@ export class GameCreationUI {
         mainContainer.role = 'main';
         mainContainer.appendChild(form);
         this.doc.body.appendChild(mainContainer);
+        this.doc.body.appendChild(new CommonFooter(this.doc).render());
     }
 
     private renderForm(): HTMLFormElement {
