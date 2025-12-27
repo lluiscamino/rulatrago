@@ -5,6 +5,7 @@ import {type Card} from "../../cards/card.ts";
 import type {CardRank} from "../../cards/rank.ts";
 import {WonTokensCalculationStrategy, WonTokensCalculator} from "./won_tokens_calculator.ts";
 import {DeterministicShuffler} from "../../cards/shuffler.ts";
+import type {GameConfig} from "./config.ts";
 
 const PYRAMID_SIZE = 5;
 const CARDS_PER_PLAYER = 5;
@@ -81,11 +82,6 @@ class SingleGameController {
     public static create(wonTokensCalculatorStrategy: WonTokensCalculationStrategy, deck: CardDeck): SingleGameController {
         return new SingleGameController(wonTokensCalculatorStrategy, createPyramidRowsIterator(deck), createCardHand(deck));
     }
-}
-
-export interface GameConfig {
-    wonTokensCalculatorStrategy: WonTokensCalculationStrategy
-    randomSeed: number
 }
 
 function createPyramidRowsIterator(deck: CardDeck): PyramidRowsIterator {

@@ -12,3 +12,11 @@ body {
 .game-footer {
     text-align: center;
 }
+
+.player-game-links-slider {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 20px;
+    margin-bottom: 10px;
+}

@@ -3,7 +3,7 @@ import type {GameController} from "../../game/controller.ts";
 import {RoundResultDialog} from "./round_result_dialog.ts";
 import {Logo} from "./logo.ts";
 import {BetsAmountDisplay} from "./bets_amount_display.ts";
-import {WarningDialog} from "../../../ui/components/warning_dialog.ts";
+import {Dialog} from "../../../ui/components/dialog.ts";
 import {translate} from "../../../i18n/translate.ts";
 
 export class Header {
@@ -46,7 +46,7 @@ export class Header {
 
     private onDrawCard(): void {
         if (this.gameController.getBetsTotalAmount() === 0) {
-            WarningDialog.show(this.doc, translate('bet_required'));
+            Dialog.showWarning(this.doc, translate('bet_required'));
             return;
         }
         const result = this.gameController.drawCardAndEndRound();

@@ -1,7 +1,7 @@
 import {betButtonDataGroups} from "./ui_data.ts";
 import type {GameController} from "../game/controller.ts";
 import {Header} from "./components/header.ts";
-import {WarningDialog} from "../../ui/components/warning_dialog.ts";
+import {Dialog} from "../../ui/components/dialog.ts";
 import {translate} from "../../i18n/translate.ts";
 import type {Bet} from "../game/bet_group.ts";
 import {BetButtonsGroup} from "./components/bet_buttons_group.ts";
@@ -33,7 +33,7 @@ export class GameUI {
         if (betAllowed) {
             this.header.updateBetsAmount();
         } else {
-            WarningDialog.show(this.doc, translate('too_many_bets'));
+            Dialog.showWarning(this.doc, translate('too_many_bets'));
         }
     }
 }

@@ -35,7 +35,7 @@ export class WonTokensCalculator {
 }
 
 export enum WonTokensCalculationStrategy {
-    LINEAR,
-    EXPONENTIAL,
-    FIBONACCI
+    LINEAR = 'lin',
+    EXPONENTIAL = 'exp',
+    FIBONACCI = 'fib'
 }

@@ -106,7 +106,7 @@ h2 {
     color: transparent;
 }
 
-.game-dialog p {
+.game-dialog .dialog-content {
     font-family: system-ui, sans-serif; /* Keep body text readable */
     font-size: 1.1rem;
     line-height: 1.6;
@@ -238,6 +238,109 @@ h2 {
     border: 2px solid #fff;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
     animation: slide-down 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.game-creation-form {
+    text-align: center;
+}
+
+/* --- FORM CONTROLS (Inputs & Selects) --- */
+
+/* 1. Shared Container Styling */
+.input-container,
+.select-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px auto; /* Centered with vertical spacing */
+    width: 100%;
+}
+
+/* 2. Shared Label Styling (Matches your H2 Headers) */
+.input-container label,
+.select-container label {
+    font-family: 'Cinzel', 'Trajan Pro', serif; /* Egyptian Header Font */
+    font-size: 1.1rem;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+/* 3. Shared Input & Select Styling (The "Onyx" Look) */
+.input-container input,
+.select-container select {
+    appearance: none;
+    -webkit-appearance: none; /* Remove default iOS/Safari styling */
+    -moz-appearance: none;
+
+    /* Background: Uses your Onyx button variable */
+    background-image: var(--btn-black);
+    background-color: #000000; /* Fallback */
+
+    color: var(--text-color);
+    border: 2px solid var(--accent-gold-dim);
+    border-radius: 4px; /* Matches your buttons */
+    padding: 12px;
+    font-size: 1.2rem;
+    font-family: 'Palatino Linotype', serif; /* Matches body font */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.8), 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+/* 4. Select Specifics (Custom Gold Arrow) */
+.select-container select {
+    width: 240px; /* Wider for text */
+    padding-right: 40px; /* Space for arrow */
+    cursor: pointer;
+
+    /* Layer the Gold Arrow SVG over the Onyx Gradient */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%23C5A000'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"),
+    var(--btn-black);
+    background-repeat: no-repeat;
+    background-position: right 15px center, center;
+}
+
+/* 5. Input Specifics (Centering & No Spinners) */
+.input-container input[type="number"] {
+    width: 100px;
+    text-align: center;
+}
+
+/* Remove default browser spinners (arrows) from number inputs */
+.input-container input::-webkit-outer-spin-button,
+.input-container input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-container input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* 6. Interaction States (Hover & Focus) */
+.input-container input:hover,
+.select-container select:hover {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 10px rgba(197, 160, 0, 0.3);
+}
+
+.input-container input:focus,
+.select-container select:focus {
+    border-color: #fff; /* White hot focus */
+    box-shadow: 0 0 15px var(--accent-gold); /* Gold Glow */
+    transform: translateY(-1px);
+}
+
+/* 7. Dropdown Options (Dark Theme Support) */
+.select-container select option {
+    background-color: #0f0518; /* Matches body --bg-color */
+    color: var(--accent-gold);
+    padding: 10px;
 }
 
 .hidden {

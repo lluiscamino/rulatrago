@@ -4,7 +4,7 @@ import {Footer} from "./components/footer.ts";
 import type {Card} from "../../cards/card.ts";
 import {Alert} from "../../ui/components/alert.ts";
 import {translate} from "../../i18n/translate.ts";
-import {WarningDialog} from "../../ui/components/warning_dialog.ts";
+import {Dialog} from "../../ui/components/dialog.ts";
 
 export class GameUI {
     private readonly gameController: GameController;
@@ -34,7 +34,7 @@ export class GameUI {
     private onPyramidCardClick(card: Card): void {
         const tokensWon = this.gameController.activateCard(card);
         if (tokensWon == null) {
-            WarningDialog.show(this.doc, translate('cannot_activate_card'));
+            Dialog.showWarning(this.doc, translate('cannot_activate_card'));
             return;
         }
         this.updateFooter();

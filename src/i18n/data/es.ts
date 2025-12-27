@@ -23,5 +23,21 @@ export const esTranslations: Translations = {
     hand_out_drinks: (({tokensWon}) => `Reparte ${tokensWon} tragos`),
     reveal_row: 'Destapar fila',
     cannot_activate_card: 'Solo puedes activar cartas en tu mano',
-    new_pyramid: 'Nueva pirámide'
+    new_pyramid: 'Nueva pirámide',
+    num_players: 'Número de jugadores',
+    pyramid_type: 'Tipo de pirámide',
+    linear: 'Linear',
+    exponential: 'Exponencial',
+    fibonacci: 'Fibonacci',
+    create_game: 'Crear partida',
+    input_valid_num_players: ({min, max}) => `Por favor, selecciona un número de jugadores entre ${min} y ${max}`,
+    input_valid_pyramid_type: 'Por favor, selecciona un tipo de pirámide válido',
+    player_no: ({playerNumber}) => `Jugador ${playerNumber}`,
+    share_game_links: 'Compartir enlaces de juego',
+    start_game: 'Empezar juego',
+    game_links_error: 'No se pudieron generar los enlaces de juego. Por favor, inténtalo de nuevo.',
+    share_game_links_description: "Haz que cada jugador escanee su código QR, o comparte los enlaces directamente (pulsando cada QR, o usando el botón de 'Compartir todos')",
+    share_game_links_warning: '<b>Importante</b>: Cada jugador debe utilizar un código QR/enlace distinto para acceder al juego. De lo contrario, varios jugadores tendrán las mismas cartas',
+    join_pyramid_game: 'Únete a mi juego de Pirámide',
+    share_all_links: 'Compartir todos los enlaces'
 }

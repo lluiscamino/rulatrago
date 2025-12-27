@@ -1,12 +1,24 @@
 import '../styles/luxury.css'
 import './style.css';
 import {GameUI} from "./ui/game_ui.ts";
-import {WonTokensCalculationStrategy} from "./game/won_tokens_calculator.ts";
 import {GameController} from "./game/controller.ts";
+import {GameConfig} from "./game/config.ts";
+import {GameCreationUI} from "./ui/game_creation_ui.ts";
 
-const gameController = GameController.create({
-    wonTokensCalculatorStrategy: WonTokensCalculationStrategy.EXPONENTIAL,
-    randomSeed: 42
-});
-const ui = new GameUI(gameController, window.document);
-ui.init();
+const url = new URL(window.location.href);
+const gameConfig = GameConfig.createFromSearchParams(url.searchParams);
+if (gameConfig) {
+    startGame(gameConfig);
+} else {
+    new GameCreationUI(window, redirectToGame).init();
+}
+
+
+function startGame(gameConfig: GameConfig) {
+    const gameController = GameController.create(gameConfig);
+    new GameUI(gameController, window.document).init();
+}
+
+function redirectToGame(gameConfig: GameConfig) {
+    window.location.href = gameConfig.toUrl(url).href;
+}
