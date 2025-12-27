@@ -29,8 +29,8 @@ export class GameUI {
         this.mainContainer.className = 'game';
         this.mainContainer.appendChild(this.pyramidHolder.render());
         this.mainContainer.appendChild(this.footer.render());
+        this.mainContainer.appendChild(new CommonFooter(this.doc).render());
         this.doc.body.appendChild(this.mainContainer);
-        this.doc.body.appendChild(new CommonFooter(this.doc).render());
     }
 
     private onPyramidCardClick(card: Card): void {
